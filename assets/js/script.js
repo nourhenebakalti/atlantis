@@ -44,3 +44,25 @@ window.addEventListener("scroll", function () {
   }
 
 });
+
+function sendEmail() {
+  const toEmail = document.getElementById('toEmail').value;
+
+  Email.send({
+    Host: "smtp.gmail.com",
+    port: 465,
+    Username: "hello.tunisiatrip@gmail.com", 
+    Password: "qkzk azaf mkal stts", 
+    To: "inbox.tunisiatrip@gmail.com",
+    From: "hello.tunisiatrip@gmail.com", 
+    Subject: "New Subscription from Atlantis Voyages",
+    Body: `New subscriber: ${toEmail}`
+  }).then(response => {
+    if (response === "OK") {
+      alert("Email sent successfully!");
+    } else {
+      console.error(response);
+      alert("Failed to send email. Check console for errors.");
+    }
+  });
+}
