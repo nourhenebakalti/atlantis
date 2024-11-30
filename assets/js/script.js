@@ -45,6 +45,10 @@ window.addEventListener("scroll", function () {
 
 });
 
+/**
+ * contact emails
+ */
+
 function sendEmail() {
   const toEmail = document.getElementById('toEmail').value;
 

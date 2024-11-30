@@ -375,7 +375,7 @@ body { background: var(--white); }
 \*-----------------------------------*/
 
 .hero {
-  background-image: url("../images/hero-banner.jpg");
+  background-image: url("../images/bg-img.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -514,7 +514,59 @@ body { background: var(--white); }
 
 .popular .btn { margin-inline: auto; }
 
+.long-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-25);
+  height: 430px;
+  width: 100%;
+  margin-bottom: 30px
+  
+}
 
+.long-card .card-img { height: 100%; }
+
+.long-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.long-card .card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--white);
+  border-radius: var(--radius-25);
+  padding: 20px;
+}
+
+.long-card .card-rating {
+  background: var(--bright-navy-blue);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.long-card .card-subtitle {
+  color: var(--blue-ncs);
+  font-size: var(--fs-6);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.long-card .card-title { margin-bottom: 5px; }
+
+.long-card :is(.card-subtitle, .card-title) > a { color: inherit; }
 
 
 
@@ -565,6 +617,10 @@ body { background: var(--white); }
 
 .card-meta-item { position: relative; }
 
+.package-card .card-price li{
+  margin-bottom:4px;
+}
+
 .card-meta-item:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -594,19 +650,61 @@ body { background: var(--white); }
   background: var(--united-nations-blue);
   color: var(--white);
   padding: 25px 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .package-card .card-price .wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   gap: 5px 15px;
   margin-bottom: 10px;
 }
 
-.package-card .card-price .reviews { font-size: var(--fs-5); }
+.package-card .card-price .title { 
+  justify-content: left;
+  font-size: var(--fs-6); 
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.package-card .card-price .content { 
+  justify-content: left;
+  font-size: var(--fs-6);
+  margin-left: 8px;
+}
+
+.package-card .card-price .meta-list {
+  max-width: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: left;
+  padding: 8px;
+}
+
+.package-card .card-price .meta-item { 
+  display: flex;
+  position: relative; 
+  margin-bottom: 20px;
+}
+
+.package-card .card-price icn { 
+  --ionicon-stroke-width: 40px; 
+  position: relative;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.package-card .card-price txt {
+  flex: 1;
+}
+
+.package-card .card-price .meta-bx > ion-icon {
+  color: var(--bright-navy-blue);
+  font-size: 13px;
+}
 
 .package-card .card-rating {
   display: flex;
@@ -858,6 +956,14 @@ address {
  * responsive for larger than 580px screen
  */
 
+ @media (min-width: 450px) {
+  .long-card .card-content {width: 90%;}
+ }
+
+/**
+ * responsive for larger than 580px screen
+ */
+
 @media (min-width: 580px) {
 
   /**
@@ -947,6 +1053,8 @@ address {
    */
 
   .popular-card .card-content { right: auto; }
+  .long-card .card-content { right: auto; }
+  .long-card .card-content {width: 50%;}
 
 
 
@@ -1044,7 +1152,8 @@ address {
   .popular-list > li:not(:last-child) { margin-bottom: 0; }
 
   .popular-card .card-content { right: 20px; }
-
+  .long-card .card-content { right: 20px; }
+  .long-card .card-content {width: 25%;}
 
 
   /**
@@ -1225,6 +1334,7 @@ address {
    */
 
   .popular-list { grid-template-columns: repeat(3, 1fr); }
+  .long-card .card-content {width: 30%;}
 
 
 
